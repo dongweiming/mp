@@ -14,7 +14,6 @@ def fib(n):
 start = time.time()
 
 pool = Pool(3)
-results = pool.map(fib, NUMBERS)
 for num, result in zip(NUMBERS, pool.map(fib, NUMBERS)):
     print 'fib({}) = {}'.format(num, result)
 
