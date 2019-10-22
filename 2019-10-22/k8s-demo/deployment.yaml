@@ -1,0 +1,22 @@
+apiVersion: apps/v1beta1 # for versions before 1.6.0 use extensions/v1beta1
+kind: Deployment
+metadata:
+  name: k8s-demo-deployment
+spec:
+  replicas: 10
+  minReadySeconds: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: k8s
+    spec:
+      containers:
+      - name: k8s-demo-pod
+        image: k8s-demo:0.2
+        ports:
+        - containerPort: 80
