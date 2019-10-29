@@ -1,0 +1,4 @@
+ingress:
+  hosts:
+    - host: demo.local
+      paths: ["/"]

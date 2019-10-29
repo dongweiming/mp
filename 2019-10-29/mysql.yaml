@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    name: mysql
+  name: mysql-server
+spec:
+  containers:
+    - name: mysql
+      image: mysql:8.0.18
+      #command: [ "/bin/sh", "-c", "env |grep MYSQL_TCP_PORT" ]
+      env:
+        - name: MYSQL_TCP_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: k8s-demo-configmap
+              key: mysql.port
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: k8s-demo-secret
+              key: passwd

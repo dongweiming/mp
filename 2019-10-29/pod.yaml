@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: k8s-demo
+  labels:
+    app: k8s
+spec:
+  containers:
+  - name: k8s-demo
+    image: k8s-demo:0.1
+    ports:
+    - containerPort: 80
+    volumeMounts:
+    - mountPath: /data
+      name: k8s-pv-storage
+  volumes:
+    - name: k8s-pv-storage
+      persistentVolumeClaim:
+       claimName: k8s-pv-claim

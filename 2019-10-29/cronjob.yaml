@@ -1,0 +1,15 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: k8s-demo-cronjob
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: python-38
+            image: python:3.8-alpine
+            command: ["python",  "-c", "import socket; print(socket.gethostbyname(socket.gethostname()))"]
+          restartPolicy: OnFailure

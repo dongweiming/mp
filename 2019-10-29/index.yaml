@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  k8s-demo:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-10-29T22:53:14.626477+08:00"
+    description: A Helm chart for Kubernetes
+    digest: c221daddc5c749e328a4284fa1a0bb3941c2a7ab7cdd0aeb724993bf1590c40d
+    name: k8s-demo
+    urls:
+    - http://127.0.0.1:8879/charts/k8s-demo-0.1.0.tgz
+    version: 0.1.0
+generated: "2019-10-29T22:53:14.625276+08:00"

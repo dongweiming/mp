@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: k8s-demo-configmap
+data:
+  mysql.host: 127.0.0.1
+  mysql.port: "3308"

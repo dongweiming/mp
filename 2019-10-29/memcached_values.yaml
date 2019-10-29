@@ -1,0 +1,2 @@
+memcached:
+  extraArgs: ["-I", "20m"]
