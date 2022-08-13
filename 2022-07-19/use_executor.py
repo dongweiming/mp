@@ -13,12 +13,19 @@ def fetch(session, page):
     with (session.get(f'{url}{page*25}', headers=headers) as r,
           open(f'top250-{page}.html', 'w') as f):
         f.write(r.text)
+    if page % 10 == 0:
+        try:
+            raise IndexError()
+        except:
+            print(111)
 
 
 def main():
     with (ThreadPoolExecutor(max_workers=5) as pool,
           requests.Session() as session):
-        list(pool.map(partial(fetch, session), range(25)))
+        result = pool.map(partial(fetch, session), range(25))
+        for i in result:
+            print(i)
 
 
 if __name__ == '__main__':
